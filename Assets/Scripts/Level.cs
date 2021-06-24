@@ -10,11 +10,13 @@ public class Level : MonoBehaviour
     [SerializeField] GameObject successScreen;
 
     SceneLoader sl;
+    GameSession gs;
 
     private void Start()
     {
         sl = FindObjectOfType<SceneLoader>();
         ball = FindObjectOfType<Ball>();
+        gs = FindObjectOfType<GameSession>();
     }
 
     public void CountBreakableBlocks()
@@ -30,6 +32,12 @@ public class Level : MonoBehaviour
             //sl.LoadNextScene();
             ball.GetComponent<Rigidbody2D>().Sleep();
             successScreen.SetActive(true);
+            var historyData = GameHistoryData.loadHistoryData();
+            if (historyData.maxScore < gs.currentScore)
+            {
+                historyData.maxScore = gs.currentScore;
+                GameHistoryData.saveHistoryData(historyData);
+            }
         }
     }
 

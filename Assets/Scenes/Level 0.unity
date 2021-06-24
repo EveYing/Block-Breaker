@@ -1955,6 +1955,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7975628883757861069, guid: 45d5e50cf47bc47268b261f347a48186, type: 3}
+      propertyPath: isAutoPlayEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7975628883757861070, guid: 45d5e50cf47bc47268b261f347a48186, type: 3}
       propertyPath: m_RootOrder
       value: 6

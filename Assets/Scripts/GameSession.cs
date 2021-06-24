@@ -10,7 +10,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] bool isAutoPlayEnabled = false;
 
-    [SerializeField] int currentScore = 0;
+    public int currentScore { get; private set; } = 0;
     float pointsMagnification = 1f;
     // Level level;
 
@@ -70,5 +70,6 @@ public class GameSession : MonoBehaviour
     {
         pointsMagnification = 1f;
     }
+
 
 }
