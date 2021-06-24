@@ -35,7 +35,7 @@ public class Block : MonoBehaviour
             if (timesHit >= hitSprites.Length)
             {
                 PlayBlockDestroySFX();
-                DestroyBlock();
+                DestroyBlock(hitSprites.Length);
                 TriggerSparklesVFX();
             }
             else
@@ -55,9 +55,10 @@ public class Block : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
     }
 
-    private void DestroyBlock()
+    private void DestroyBlock(int i)
     {
-        gs.AddToScore();
+        gs.AddToScore(i);
+        gs.ScoreMultiplier();
         level.CountDestroyedBlocks();
     }
 

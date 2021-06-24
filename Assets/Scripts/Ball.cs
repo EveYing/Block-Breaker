@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     float xPush = 2f;
     float yPush = 15f;
 
+
     // State
     Vector3 paddleToBallDistance;
     bool hasStarted = false;
@@ -65,5 +66,12 @@ public class Ball : MonoBehaviour
             ballAudioSource.PlayOneShot(clip);
             myRB2D.velocity += velocityTweak;
         }
+        if (collision.gameObject.GetComponentInChildren<Paddle>() != null)
+        {
+            gs.ResetMultiplier();
+        }
     }
+
+
+
 }

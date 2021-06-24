@@ -11,6 +11,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] bool isAutoPlayEnabled = false;
 
     [SerializeField] int currentScore = 0;
+    float pointsMagnification = 1f;
     // Level level;
 
     private void Awake()
@@ -41,9 +42,9 @@ public class GameSession : MonoBehaviour
         // currentScore = level.getBrokenBlocks() * pointsPerBlock;
     }
 
-    public void AddToScore()
+    public void AddToScore(int i)
     {
-        currentScore += pointsPerBlock;
+        currentScore += (int) (pointsPerBlock * pointsMagnification * (1f + (i - 1) / 2f));
         scoreText.text = "Score: " + currentScore.ToString();
     }
 
@@ -56,4 +57,18 @@ public class GameSession : MonoBehaviour
     {
         return isAutoPlayEnabled;
     }
+
+    public void ScoreMultiplier()
+    {
+        if (pointsMagnification <= 3f)
+        {
+            pointsMagnification += 0.1f;
+        }
+    }
+
+    public void ResetMultiplier()
+    {
+        pointsMagnification = 1f;
+    }
+
 }

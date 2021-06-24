@@ -28,7 +28,7 @@ public class Level : MonoBehaviour
         if (brokenBlocks >= breakableBlocks)
         {
             //sl.LoadNextScene();
-            ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ball.GetComponent<Rigidbody2D>().Sleep();
             successScreen.SetActive(true);
         }
     }
