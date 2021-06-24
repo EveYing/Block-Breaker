@@ -6,12 +6,15 @@ public class Level : MonoBehaviour
 {
     int breakableBlocks = 0;
     int brokenBlocks = 0;
+    Ball ball;
+    [SerializeField] GameObject successScreen;
 
     SceneLoader sl;
 
     private void Start()
     {
         sl = FindObjectOfType<SceneLoader>();
+        ball = FindObjectOfType<Ball>();
     }
 
     public void CountBreakableBlocks()
@@ -24,7 +27,9 @@ public class Level : MonoBehaviour
         brokenBlocks++;
         if (brokenBlocks >= breakableBlocks)
         {
-            sl.LoadNextScene();
+            //sl.LoadNextScene();
+            ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            successScreen.SetActive(true);
         }
     }
 

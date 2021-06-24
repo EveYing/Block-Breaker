@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class SceneLoader : MonoBehaviour {
 
@@ -14,6 +16,7 @@ public class SceneLoader : MonoBehaviour {
 
     public void LoadNextScene()
     {
+        Debug.Log("I'm Here!");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
@@ -27,5 +30,17 @@ public class SceneLoader : MonoBehaviour {
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void LoadSelectedLevelScene(Button button)
+    {
+        string buttonText = button.GetComponentInChildren<TextMeshProUGUI>().text;
+        SceneManager.LoadScene(buttonText);
+    }
+
+    public void LoadSelectionMenu()
+    {
+        gs.DestroyStatus();
+        SceneManager.LoadScene("Selection Menu");
     }
 }

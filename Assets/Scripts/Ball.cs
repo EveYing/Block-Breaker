@@ -8,9 +8,9 @@ public class Ball : MonoBehaviour
     // Config Params
     [SerializeField] Paddle paddle;
     [SerializeField] AudioClip[] ballSounds;
-    [SerializeField] float randomFactor = 0.5f;
-    [SerializeField] float xPush = 2f;
-    [SerializeField] float yPush = 15f;
+    float randomFactor = 0.5f;
+    float xPush = 2f;
+    float yPush = 15f;
 
     // State
     Vector3 paddleToBallDistance;
@@ -20,6 +20,7 @@ public class Ball : MonoBehaviour
     // Cached item
     AudioSource ballAudioSource;
     Rigidbody2D myRB2D;
+    GameSession gs;
 
     // Use this for initialization
     void Start()
@@ -27,6 +28,7 @@ public class Ball : MonoBehaviour
         paddleToBallDistance = transform.position - paddle.transform.position;
         ballAudioSource = GetComponent<AudioSource>();
         myRB2D = GetComponent<Rigidbody2D>();
+        gs = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame
