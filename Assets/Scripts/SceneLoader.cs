@@ -18,7 +18,15 @@ public class SceneLoader : MonoBehaviour {
     {
         //Debug.Log("I'm Here!");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        Debug.Log(currentSceneIndex + " " + SceneManager.sceneCountInBuildSettings);
+        if (currentSceneIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene("Success Menu");
+        }
     }
 
     public void LoadStartScene()
