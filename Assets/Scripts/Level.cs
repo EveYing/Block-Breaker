@@ -31,6 +31,8 @@ public class Level : MonoBehaviour
         {
             //sl.LoadNextScene();
             ball.GetComponent<Rigidbody2D>().Sleep();
+            ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ball.GetComponent<Rigidbody2D>().position = Vector2.one;
             successScreen.SetActive(true);
             var historyData = GameHistoryData.loadHistoryData();
             if (historyData.maxScore < gs.currentScore)

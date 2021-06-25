@@ -280,5 +280,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSpeed: 1
   scoreText: {fileID: 5941748854305902509}
-  isAutoPlayEnabled: 1
-  currentScore: 0
+  isAutoPlayEnabled: 0
