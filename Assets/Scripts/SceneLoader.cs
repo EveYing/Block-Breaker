@@ -41,6 +41,6 @@ public class SceneLoader : MonoBehaviour {
     public void LoadSelectionMenu()
     {
         gs.DestroyStatus();
-        SceneManager.LoadScene("Selection Menu");
+        SceneManager.LoadScene("Main Menu");
     }
 }
